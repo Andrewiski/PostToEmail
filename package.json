@@ -1,6 +1,6 @@
 {
   "name": "posttoemail",
-  "version": "0.0.7",
+  "version": "0.0.1",
   "description": "HTTP Post To Email",
   "main": "app.js",
   "author": {

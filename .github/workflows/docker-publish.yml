@@ -34,13 +34,7 @@ jobs:
           else
             echo Nothing to do here yet...
           fi
-      # echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-      # IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/sipsrv:latest
-      # docker pull $IMAGE_ID
-      # docker tag $IMAGE_ID sipsrv:latest
-
-      #docker build . --file Dockerfile    
-        
+     
 
   # See also https://docs.docker.com/docker-hub/builds/
   build:
@@ -66,19 +60,6 @@ jobs:
           echo "package_name=$PACKAGE_NAME" >> $GITHUB_ENV
           echo Package Name $PACKAGE_NAME
       
-      #- name: update pakage name
-      #  if: ${{ github.ref != 'refs/heads/main' && github.ref != "refs/tags/"*  }}
-      #  run: |
-      #    echo Old Package Name $PACKAGE_NAME
-      #    BRANCH_NAME=${GITHUB_REF#refs/heads/}
-      #    # Force Lower Case
-      #    [[ "${{ github.ref }}" == "refs/heads/"* ]] && BRANCH_NAME=$(echo $BRANCH_NAME | sed -e 's/\(.*\)/\L\1/')
-      #    # remove spaces
-      #    BRANCH_NAME=$(echo $BRANCH_NAME | sed -e 's/ /_/g')
-      #    echo Branch Name $BRANCH_NAME
-      #    PACKAGE_NAME=${{ env.IMAGE_NAME }}_$BRANCH_NAME
-      #    echo "package_name=$PACKAGE_NAME" >> $GITHUB_ENV
-      #    echo New Package Name $PACKAGE_NAME
 
       - name: Build Docker Image
         id: step_2
